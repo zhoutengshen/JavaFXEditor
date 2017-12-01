@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<?import javafx.scene.layout.StackPane?>
+<BorderPane prefHeight="541.0" prefWidth="698.0" stylesheets="@../css/myCss.css"
+            xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="superEditor.controler.RootControler">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <left>
+        <FlowPane maxWidth="50.0" minWidth="50.0" prefWidth="49.0" style="-fx-background-color: #3C3F41"
+                  BorderPane.alignment="CENTER">
+            <children>
+                <JFXButton fx:id="btnFolder" buttonType="RAISED" layoutX="-2.0" layoutY="17.0" maxHeight="50.0"
+                           maxWidth="50.0" minHeight="50.0" minWidth="50.0" onMousePressed="#mousePress"
+                           prefHeight="50.0" ripplerFill="BLACK" prefWidth="50.0" styleClass="btn-file" text="搜索">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </JFXButton>
+                <JFXButton fx:id="btnFind" buttonType="RAISED" layoutX="-2.0" layoutY="83.0" maxHeight="50.0"
+                           maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0"
+                           ripplerFill="BLACK" styleClass="btn-find" text="文件">
+                    <cursor>
+                        <Cursor fx:constant="CLOSED_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <JFXButton fx:id="btnSetting" buttonType="RAISED" layoutX="-2.0" layoutY="389.0" maxHeight="50.0"
+                           maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0"
+                           styleClass="btn-setting"/>
+            </children>
+        </FlowPane>
+    </left>
+    <center>
+        <SplitPane fx:id="splitPane" dividerPositions="0.0" prefHeight="516.0" prefWidth="572.0"
+                   BorderPane.alignment="CENTER">
+            <items>
+                <StackPane styleClass="stack-pane" fx:id="splitLeft" minHeight="0.0" minWidth="0.0" prefHeight="514.0"
+                           prefWidth="0.0"/>
+                <StackPane styleClass="stack-pane" fx:id="spliRight" minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+                           prefWidth="100.0"/>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>
