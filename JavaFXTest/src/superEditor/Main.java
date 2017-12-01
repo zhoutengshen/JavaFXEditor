@@ -3,9 +3,6 @@ package superEditor;/**
  */
 
 import javafx.application.Application;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -20,7 +17,6 @@ import superEditor.controler.RootControler;
 import superEditor.model.MyTabPane;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Main extends Application {
 
