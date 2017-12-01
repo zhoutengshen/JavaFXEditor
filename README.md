@@ -17,9 +17,9 @@ RSyntaxTextAreaDom，exemple是两个dome，是我开发写的测试；
 
 参考资料：
 
-https://github.com/bobbylight/RSyntaxTextArea，一个基于Swing的开源高亮文本控件，可以开箱即用；
+https://github.com/bobbylight/RSyntaxTextArea 一个基于Swing的开源高亮文本控件，可以开箱即用；
 
-https://github.com/jfoenixadmin/JFoenix，好看的JavaFX材料库
+https://github.com/jfoenixadmin/JFoenix 好看的JavaFX材料库
 
 
 
