@@ -22,4 +22,6 @@ https://github.com/bobbylight/RSyntaxTextArea 一个基于Swing的开源高亮�
 https://github.com/jfoenixadmin/JFoenix 好看的JavaFX材料库
 
 
+![image](https://github.com/zhoutengshen/JavaFXEditor/blob/master/showImg/gif.gif)
 
+![image](https://github.com/zhoutengshen/JavaFXEditor/blob/master/showImg/gif1.gif)
