@@ -2,7 +2,6 @@ package superEditor.model;
 
 import com.jfoenix.controls.JFXTreeView;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingNode;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -18,7 +17,7 @@ import java.io.File;
 public class MyTreeView {
 
     Main main;
-    String path;
+    public String path;
     public MyTreeView(Main main, String path) {
         this.path = path;
         this.main  = main;

@@ -135,3 +135,21 @@ TabPane
 .tab-header-background {
     -fx-background-color: #2B2B2B;
 }
+
+/*
+菜单条
+*/
+.context-menu:focused {
+    -fx-background-color: #323232;
+    -fx-focus-color:white;
+}
+
+.menu-item:focused {
+    -fx-background-color: #271f82;
+    -fx-focus-color:white;
+}
+
+.menu:focused {
+    -fx-background-color:white;
+    -fx-focus-color:white;
+}

@@ -2,6 +2,8 @@ package superEditor.controler;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
@@ -18,6 +20,10 @@ public class RootControler {
     public SplitPane splitPane;
     public StackPane splitLeft;
     public StackPane spliRight;
+    public MenuBar menuBar;
+    public MenuItem newMenuItem;
+    public MenuItem closeMenuItem;
+    public MenuItem openMenuItem;
     private boolean toolglePanstatu = true;
 
     public JFXButton getBtnFind() {
@@ -72,12 +78,35 @@ public class RootControler {
     public RootControler() {
     }
 
+
     //资源管理器的树形目录
-    MyTreeView viewItem;
+    MyTreeView myTreeView;
     public void init(){
-        viewItem = new MyTreeView(main, "C:\\Users\\Administrator\\Desktop\\TreeDirManager");
+        myTreeView = new MyTreeView(main, ".");
         treePane = new StackPane();
-        viewItem.buildTree(treePane);
+        myTreeView.buildTree(treePane);//目录绑定到Pane里。然后把panne放到父容器
+
+        openMenuItem.setOnAction(e->{
+//            System.out.print(".....");
+//            Stage dialogStage = new Stage();
+//            Pane pane = new Pane();
+//            Scene scene = new Scene(pane);
+//            dialogStage.setScene(scene);
+//            dialogStage.showAndWait();
+
+            //加载新的目录，把u、原来的目录移除
+            splitLeft.getChildren().remove(0);
+            //从新加载新目录
+            myTreeView = new MyTreeView(main,"C:\\");
+            treePane = new StackPane();
+            myTreeView.buildTree(treePane);
+            //刷新
+            hideToolglePane();
+            treeViewHasLoaded = false;
+            //showToolglePane();
+
+
+        });
     }
 
     @FXML
@@ -101,11 +130,17 @@ public class RootControler {
     }
 
     StackPane treePane;
+    boolean treeViewHasLoaded = false;
+
     public void showToolglePane(){
         splitPane.setDividerPosition(0, tooglePaneSize / stage.getWidth());
         toolglePanstatu = !toolglePanstatu;
 
-        splitLeft.getChildren().add(0,treePane);
+        if (!treeViewHasLoaded)
+        {
+            splitLeft.getChildren().add(0,treePane);
+            treeViewHasLoaded = !treeViewHasLoaded;
+        }
     }
 
     public void hideToolglePane(){
