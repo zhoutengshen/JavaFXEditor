@@ -1,10 +1,10 @@
 package superEditor.model;
 
-import com.jfoenix.controls.JFXTabPane;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,9 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/11/30.
  */
-public class MyTabPane extends JFXTabPane {
+public class MyTabPane extends TabPane {
+
+
 
     public List<String> getFilePaths() {
         return filePaths;
@@ -40,7 +42,6 @@ public class MyTabPane extends JFXTabPane {
                     tab.setOnCloseRequest(e->{
                         ovTabs.remove(tab);
                         ovFilePaths.remove(tab.getFilePathProperty().toString());
-                        System.out.print("???");
                     });
                     ovTabs.add(tab);
                     this.getSelectionModel().select(tab);
@@ -48,6 +49,7 @@ public class MyTabPane extends JFXTabPane {
             }
         });
     }
+
 
     public void addTab(String filePath){
        ovFilePaths.add(filePath);

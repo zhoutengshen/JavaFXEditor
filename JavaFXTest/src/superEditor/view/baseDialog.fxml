@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<BorderPane fx:id="borderPane" fx:controller="superEditor.controler.MyDialogController"
+            xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <FlowPane>
+            <Button fx:id="btn1">
+                按钮1
+            </Button>
+            <Button>
+                按钮2
+            </Button>
+            <Button>
+                按钮3
+            </Button>
+        </FlowPane>
+    </top>
+</BorderPane>

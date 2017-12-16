@@ -30,18 +30,22 @@ public class MyTab extends Tab {
         this.filePathProperty.set(filePathProperty);
     }
 
+
     public MyTab(String filePath){
         super();
+
+
+        this.setOnClosed(e->{
+            editor.saveFile();
+            System.out.print("保存文件.....");
+        });
         //双向绑定
         filePathProperty.bindBidirectional(editor.filePathPropertyProperty());
         filePathProperty.set(filePath);
         this.setContent(editor.getTextNode());
         this.setText(editor.getFile().getName());
-        setStyle();
     }
 
-    protected void setStyle(){
 
-    }
 
 }

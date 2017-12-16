@@ -1,4 +1,4 @@
-package superEditor.model;
+package superEditor.controler;
 
 import com.jfoenix.controls.JFXTreeView;
 import javafx.collections.ObservableList;
@@ -14,14 +14,27 @@ import superEditor.Main;
 
 import java.io.File;
 
-public class MyTreeView {
+public class MyTreeViewController {
 
     Main main;
     public String path;
-    public MyTreeView(Main main, String path) {
+    public MyTreeViewController(Main main, String path) {
         this.path = path;
         this.main  = main;
     }
+
+
+    public void addTab(File file) {
+        if (main.getMyTabPane().getOvFilePaths() != null) {
+            int index = main.getMyTabPane().getOvFilePaths().indexOf(file.getPath());
+            if (index == -1 && file.isFile()) {
+                main.getMyTabPane().getOvFilePaths().add(file.getPath());
+            } else {
+                main.getMyTabPane().selectTab(index);
+            }
+        }
+    }
+
     public void buildTree(StackPane stackPane){
         File file = new File(path);
         TreeView<File> treeView = new JFXTreeView<>(new MyTreeItem(file));
@@ -46,7 +59,7 @@ public class MyTreeView {
                                 addEventHandler(MouseEvent.MOUSE_CLICKED,event -> {
                                     TreeCell<File> treeCell = (TreeCell) event.getSource();
                                     File tempFile = treeCell.getTreeItem().getValue();
-                                    main.addTab(tempFile.getPath());
+                                    addTab(tempFile);
 
                                 });
                             }else if(f.getName().endsWith("txt")){
